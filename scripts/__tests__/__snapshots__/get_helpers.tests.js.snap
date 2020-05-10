@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`_load_get takes a basic query and returns expected data 1`] = `
+Object {
+  "comment0": "",
+  "func0": "KEY",
+  "input0": "b",
+  "length": "1",
+  "option0": "Replace",
+  "skeyValue0": "a",
+}
+`;
+
+exports[`_load_get takes data in regardless of values 1`] = `
+Object {
+  "comment5": "",
+  "func5": "KEY",
+  "input5": "b",
+  "length": "1",
+  "option5": "Replace",
+  "skeyValue5": "a",
+}
+`;
+
+exports[`_load_get takes no issue with an indexes query 1`] = `
+Object {
+  "comment0": "",
+  "func0": "KEY",
+  "indexes": "1",
+  "input0": "b",
+  "option0": "Send",
+  "skeyValue0": "a",
+}
+`;

@@ -1,0 +1,11 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.js_bar {
+    margin-left: auto;
+    margin-right: auto;
+}
