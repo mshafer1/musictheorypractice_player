@@ -10,17 +10,6 @@ function load() {
     _get_data = load_get();
     _debug_log(_get_data);
 
-    if (Object.keys(_get_data).length == 0 || !(KEYS.n in _get_data) || !(KEYS.song in _get_data)) {
-        $('#message').html("<p>Error: must provide song and n in url</p>")
-    }
-
-    var title = "";
-    if (KEYS.title in _get_data) {
-        title = _get_data[KEYS.title];
-    }
-
-    setup_player(_get_data[KEYS.n], _get_data[KEYS.song], title);
-
     if (KEYS.width in _get_data) {
         width = 80
         try {
@@ -31,6 +20,27 @@ function load() {
         }
         $('.js_bar').width(`${ width }%`)
     }
+
+    if (Object.keys(_get_data).length == 0 || !(KEYS.song in _get_data)) {
+        $('#message').html("<p>Error: must provide 'song' in url</p>")
+        return;
+    }
+
+    var n = 1
+    if (KEYS.n in _get_data) {
+        try {
+            n = parseInt(_get_data[KEYS.n]);
+        } catch {
+            // pass
+        }
+    }
+
+    var title = "";
+    if (KEYS.title in _get_data) {
+        title = _get_data[KEYS.title];
+    }
+
+    setup_player(n, _get_data[KEYS.song], title);
 }
 
 function setup_player(n, song, title) {
