@@ -52,7 +52,7 @@ function setup_player(n, song, title) {
 function genRow(n, audioPath, title) {
     //console.log("index: " +index);
     result = `   
-    <div class="w3-row-padding w3-padding w3-display-middle ">
+    <div class="w3-row-padding w3-padding ">
         <div class="w3-col s12 m6">
         <audio id="_player_raw" class="player" onended="stop()">
            <source src="${audioPath}" type="audio/mpeg"/>
@@ -71,8 +71,9 @@ function genRow(n, audioPath, title) {
 
     result +=
         `
-    <div class="w3-col s12 m6">
-    <p>${title}</p>
+        <div class="w3-col s12 m6">
+        <p>${title}</p>
+        </div>
     </div>
     `
 

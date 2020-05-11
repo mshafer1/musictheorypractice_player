@@ -2,7 +2,7 @@
 layout: default
 extra_head: "
 <script src='/scripts/get_helpers.js'></script>
-<script src='/scripts/script.js'></script>
+<script src='/scripts/script.js?{{ site.time | date: \"%Y-%m-%d %H:%M\" | url_encode }}'></script>
 <script>$(window).ready(load)</script>
 "
 ---
