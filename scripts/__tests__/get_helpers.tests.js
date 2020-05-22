@@ -22,6 +22,21 @@ describe('_load_get', () => {
             .toEqual({ 'indexes': '0' })
     });
 
+    it('takes url with extra spaces and trims them', () => {
+        expect(get_helpers._load_get('ahkgen.com/?   indexes=0'))
+            .toEqual({ 'indexes': '0' })
+    });
+
+    it('takes url with url escaped spaces and keeps them', () => {
+        expect(get_helpers._load_get('ahkgen.com/?+++indexes=0'))
+            .toEqual({ '   indexes': '0' })
+    });
+
+    it('take a url and does not strip values', () => {
+        expect(get_helpers._load_get('ahkgen.com/?+++indexes=+'))
+            .toEqual({ '   indexes': ' ' })
+    });
+
     it('takes duplicate values into array', () => {
         expect(get_helpers._load_get('ahkgen.com/?skey0=CTRL&skey0=ALT'))
             .toEqual({ 'skey0': ['CTRL', 'ALT'] })
