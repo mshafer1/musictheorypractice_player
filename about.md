@@ -76,7 +76,7 @@ Use it for:
 
 ## Free as in Coffee
 
-This is completely free to use and published under the [MIT License](/LICENSE){:target="_blank"}.<br/>
+This is completely free to use and published under the [MIT License](/license.html){:target="_blank"}.<br/>
 I wouldn't say "no" to some coffee money though.
 
 <a class="w3-btn w3-black w3-round-xxlarge" target="_blank" href="https://www.buymeacoffee.com/mshafer1"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt=""><span style="margin-left:5px;">Buy me a coffee</span></a>
