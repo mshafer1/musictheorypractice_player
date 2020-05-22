@@ -16,7 +16,7 @@ function _load_get(location) {
     var result = {}
 
     // enable debug logging if asked
-    if(location.includes('ENABLE_DEBUG_LOGGIN')) {
+    if(location.includes('ENABLE_DEBUG_LOGGING')) {
         DEBUG_LOGGING_ENABLED = true;
     }
 
@@ -29,16 +29,18 @@ function _load_get(location) {
         .replace(/^.*?\?/, '')
         // and remove any existing hash string (thanks, @vrijdenker)
         .replace(/#.*$/, '')
-        .replace(new RegExp(escapeRegExp('+'), 'g'), ' ')
+        .replace(new RegExp(escapeRegExp(' '), 'g'), '')
         .split('&');
 
     for (var i = 0, l = query.length; i < l; i++) {
         aux = decodeURIComponent(query[i])
-        _debug_log(aux)
-        key = aux.match(/([\d\D]+?\=)/)[0].replace('=', '');
-        _debug_log(key)
-        value = aux.replace(key + "=", "")
-        _debug_log(value)
+        console.log(aux)
+        key = aux.match(/([\d\D]+?\=\s?)/)[0].replace('=', '')
+        // _debug_log(key)
+        value = aux.replace(key + "=", "").replace(new RegExp(escapeRegExp('+'), 'g'), ' ')
+        // clean up the key
+        key = key.replace(/^[\s]*/g,"").replace(/\+/g," ")
+        // _debug_log(value)
         if (key in result) {
             if (result[key].constructor === Array) {
                 result[key].push(value)
